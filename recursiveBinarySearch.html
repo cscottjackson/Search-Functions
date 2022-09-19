@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--recursive binary search in Javascript -- Carter Jackson 9/19/2022 -->
+<head>
+<script>
+//to be used with a sorted array of integers.
+function binarySearch(arr, left, r ,x){
+   if(r>=1){ 
+    let mid = left + Math.floor((r - left) / 2);
+
+    //if the target value is found at the middle index, return middle index.
+    if(arr[mid] == x)
+        return mid;
+    
+    //if the target value is at the index 0 in the array, return the index.
+    if(arr[left] == x)
+        return left;
+
+    //this a used with a sorted array, so if the target value is smaller than the value found at the middle index, it must be in the left portion of the array.
+    if(arr[mid] > x){
+        return binarySearch(arr, left, mid -1, x);    //recursion
+    }
+    //else target value must be in the right side of the array. 
+    else 
+        return binarySearch(arr,mid + 1, r, x); //recursion
+    }
+  
+      return -1; // if the value is not found it will return -1 
+}
+
+
+
+
+var arr = [2, 12, 22, 34, 41, 99, 100];
+var p = 2; //p is the number to be searched for in the array.
+var n = arr.length;
+var result = binarySearch(arr, 0, n - 1, p);
+
+if(result == -1)
+    document.write("element not found in array ");
+else
+    document.write("element found at index " + result);
+
+</script>
+</head>
+
+</html>
