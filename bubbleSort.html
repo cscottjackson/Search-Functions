@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--Carter Scott Jackson 9/19/22 Bubble Sort in Javascript-->
+<head>
+<script>
+function swap(arr,xp,yp){
+    var temp = arr[xp];
+    arr[xp] = arr[yp];
+    arr[yp] = temp;
+}
+
+
+function bubbleSort(arr, n){
+    var i; var j;
+    for(i=0;i<n-i; i++){
+        for(j=0;j<n-i-1;j++){
+            if(arr[j]>arr[j+1]){
+                swap(arr,j,j+1)
+            }
+        }
+    }
+}
+
+function printArray(arr, n){
+    var i;
+    for(i=0;i<n;i++){
+        document.write(arr[i] + " " + "\n");
+    }
+}
+
+var arr = [100,12,2,41,34,99,22];
+var n = arr.length;
+
+document.write("unsorted array ");
+document.write( " \n");
+printArray(arr,n);
+
+document.write("sorted array");
+document.write( '\n');
+bubbleSort(arr,n);
+printArray(arr,n);
+</script>
+</head>
+
+</html>
